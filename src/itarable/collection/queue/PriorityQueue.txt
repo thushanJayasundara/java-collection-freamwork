@@ -1,0 +1,53 @@
+n Java, a PriorityQueue is an implementation of a Priority Deque where elements are ordered based on their
+natural ordering (for objects implementing Comparable) or by a custom comparator.
+However, Java does not have a direct PriorityDeque class, but you can use PriorityQueue
+for min-heap behavior and PriorityBlockingQueue for thread-safe priority queuing.
+
+Key Features of PriorityQueue:
+•	Explanation
+	•	Min-Heap by Default: The smallest element has the highest priority.
+	•	Custom Comparator: Allows max-heap behavior.
+	•	offer(E e) / add(E e): Inserts elements.
+	•	poll(): Removes and returns the highest-priority element.
+	•	peek(): Returns the top element without removing it.
+
+Priority Deque vs. Custom Comparator (Max-Heap) in Java
+
+1️⃣ Priority Deque (Using PriorityQueue)
+	•	A priority deque is a queue where elements are ordered based on their priority.
+	•	In Java, the PriorityQueue class implements a Min-Heap by default.
+	•	Elements are dequeued (removed) based on priority (smallest first).
+	•	Example:
+
+PriorityQueue<Integer> pq = new PriorityQueue<>();
+pq.offer(30);
+pq.offer(10);
+pq.offer(50);
+pq.offer(20);
+System.out.println(pq.poll()); // Output: 10 (smallest element)
+
+
+
+2️⃣ Custom Comparator (Max-Heap using PriorityQueue)
+	•	By default, PriorityQueue behaves as a Min-Heap.
+	•	To create a Max-Heap, we use a custom comparator (Collections.reverseOrder()).
+	•	In a Max-Heap, the largest element is dequeued first.
+	•	Example:
+
+PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
+maxHeap.offer(30);
+maxHeap.offer(10);
+maxHeap.offer(50);
+maxHeap.offer(20);
+System.out.println(maxHeap.poll()); // Output: 50 (largest element)
+
+
+
+🔑 Key Differences
+
+Feature	Priority Deque (PriorityQueue)	Max-Heap (PriorityQueue with Comparator)
+Default Behavior	Min-Heap (smallest element first)	Max-Heap (largest element first)
+Custom Comparator Needed?	No	Yes (Collections.reverseOrder())
+Removal Order	Smallest to Largest	Largest to Smallest
+Use Case	Task Scheduling, Dijkstra’s Algorithm	Leaderboards, Heaviest Jobs First
+
