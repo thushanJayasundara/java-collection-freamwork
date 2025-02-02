@@ -1,3 +1,5 @@
+package itarable.collection.list;
+
 import java.util.ArrayList;
 
 /**
